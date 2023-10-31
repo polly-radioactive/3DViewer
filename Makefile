@@ -38,7 +38,7 @@ uninstall:
 	rm -rf viewer.tar.gz
 
 dvi:
-	open ../README.md
+	open README.md
 
 dist: install
 	tar -czf viewer.tar.gz --directory=viewer/ .
