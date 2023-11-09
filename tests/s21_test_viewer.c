@@ -95,9 +95,9 @@ START_TEST(test_rotate_x) {
   s21_rotate(&data, 90.0, 1, 0, 0);
 
   ck_assert_double_le(fabs(data.v.coord[0].y),
-                    1e-6);  // y должен приблизиться к 0 после вращения
+                      1e-6);  // y должен приблизиться к 0 после вращения
   ck_assert_double_le(fabs(data.v.coord[0].z - 1.0),
-                    1e-6);  // z должен стать 1 после вращения
+                      1e-6);  // z должен стать 1 после вращения
 
   free(data.v.coord);
 }

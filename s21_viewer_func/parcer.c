@@ -136,7 +136,6 @@ void min_max_Z(viewer *data) {
 }
 
 void normalize(viewer *data) {
-  //отцентровка
   double centre_x =
       data->v.MinMax_X[0] + (data->v.MinMax_X[1] - data->v.MinMax_X[0]) / 2;
   double centre_y =

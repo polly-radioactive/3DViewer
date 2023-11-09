@@ -24,7 +24,7 @@ set(PROJECT_SOURCES
         mainwindow.h
         mainwindow.ui
 		myopenglwidget.h myopenglwidget.cpp
-        ../s21_viewer_func/s21_viewer.h
+		../s21_viewer_func/s21_viewer.h
 		../s21_viewer_func/parcer.c
         ../s21_viewer_func/affine.c
 )
@@ -34,6 +34,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(3DViewer
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+		QtGifImage/gifimage/qgifglobal.h QtGifImage/gifimage/qgifimage.cpp QtGifImage/gifimage/qgifimage.h QtGifImage/gifimage/qgifimage_p.h QtGifImage/giflib/dgif_lib.c QtGifImage/giflib/egif_lib.c QtGifImage/giflib/gif_err.c QtGifImage/giflib/gif_font.c QtGifImage/giflib/gif_hash.c QtGifImage/giflib/gif_hash.h QtGifImage/giflib/gif_lib.h QtGifImage/giflib/gif_lib_private.h QtGifImage/giflib/gifalloc.c QtGifImage/giflib/quantize.c
 	)
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET 3DViewer APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

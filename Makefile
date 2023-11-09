@@ -14,19 +14,20 @@ s21_viewer.a:
 	ar -rc s21_viewer.a *.o
 	rm -rf *.o
 
-tests: test gcov_report
-
 gcov_report:
+	unzip test_file.zip 
 	$(CC) -o exec $(GCOV_FLAGS) $(FILES) $(TESTFILES) $(PKGCONFIG)
 	./$(OUT)
 	lcov -capture --directory . --output-file main_coverage.info
 	genhtml *.info -o ./gcov_report
 	open ./gcov_report/index.html
-	rm -rf *.gcda *.gcno *.info exec a.out
+	rm -rf *.gcda *.gcno *.info exec a.out ./test_file
 
 test:
 	unzip test_file.zip 
-	$(CC) $(FILES) $(TESTFILES) $(PKGCONFIG)
+	$(CC) -o exec $(FILES) $(TESTFILES) $(PKGCONFIG)
+	./$(OUT)
+	rm -rf ./test_file
 
 install: uninstall
 	mkdir build
@@ -38,7 +39,7 @@ uninstall:
 	rm -rf viewer.tar.gz
 
 dvi:
-	open README.md
+	open ../README.md
 
 dist: install
 	tar -czf viewer.tar.gz --directory=viewer/ .
@@ -55,3 +56,4 @@ style_check:
 
 clean: uninstall
 	rm -rf gcov_report tests/*.o ./a.out *.o *.gcda *.gcno *.info exec s21_viewer.a ./test_file
+
